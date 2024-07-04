@@ -1,5 +1,7 @@
 import { useRef } from "react";
 import { CONFIG } from "./environment";
+import IconButton from "./components/IconButton";
+import Button from "./components/Button";
 
 function App() {
   const dialogRef = useRef(null);
@@ -20,8 +22,11 @@ function App() {
         </header>
         <main className="flex flex-col flex-grow p-2">
           <div className="flex flex-row h-full">
-            <div className="w-1/5 bg-gray-200">Sidebar</div>
-            <div className="w-4/5 bg-gray-400">{CONFIG}</div>
+            <div className="w-1/5 bg-gray-200 flex flex-col items-center justify-center">
+              <IconButton iconName="hiking" onClick={() => console.log("test")} />
+              <Button name="Click me" onClick={() => console.log("test")} />
+            </div>
+            <div className="w-4/5 bg-gray-400 flex items-center justify-center">{CONFIG} active</div>
           </div>
         </main>
 
