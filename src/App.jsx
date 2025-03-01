@@ -23,10 +23,10 @@ function App() {
   return (
     <>
       <div className="flex flex-col h-full w-full">
-        <header className="h-[10%] flex items-center justify-center bg-gradient-to-br from-green-700 to-green-500">
+        <header className="h-[10%] flex items-center justify-center bg-linear-to-br from-green-700 to-green-500">
           <div className="text-center m-auto font-bold text-3xl text-stone-300">Hello world</div>
         </header>
-        <main className="flex flex-col flex-grow p-2">
+        <main className="flex flex-col grow p-2">
           <div className="flex flex-row h-full">
             <div className="w-1/5 bg-gray-200 flex flex-col items-center justify-center">
               <IconButton iconName="hiking" onClick={() => console.log("test")} />
@@ -37,13 +37,13 @@ function App() {
           </div>
         </main>
 
-        <footer className="h-[20px] xl:h-[40px] text-stone-100 bg-gradient-to-br from-green-700 to-green-500 flex justify-end gap-4 px-2 items-center">
+        <footer className="h-[20px] xl:h-[40px] text-stone-100 bg-linear-to-br from-green-700 to-green-500 flex justify-end gap-4 px-2 items-center">
           <button onClick={openDialog}>About</button>
           <p className="">{`Template project | ${BUILT_AT} | 2024 - ${new Date().getFullYear()}`}</p>
         </footer>
       </div>
-      <dialog ref={dialogRef} onClick={onBackdropClick} className="rounded-md">
-        <div className="w-[80vw] h-[80vh] p-4 flex flex-col items-center justify-between">
+      <dialog ref={dialogRef} onClick={onBackdropClick} className="rounded-md w-[80vw] h-[80vh] m-auto">
+        <div className=" p-4 flex flex-col items-center justify-between size-full">
           <p className="font-bold text-2xl">Title</p>
           <div>
             <p>Line 1</p>
