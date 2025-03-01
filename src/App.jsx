@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { CONFIG } from "./environment";
+import { BUILT_AT, CONFIG } from "./environment";
 import IconButton from "./components/IconButton";
 import Button from "./components/Button";
 
@@ -12,6 +12,12 @@ function App() {
 
   const closeDialog = () => {
     dialogRef.current.close();
+  };
+
+  const onBackdropClick = (e) => {
+    if (e.target === dialogRef.current) {
+      closeDialog();
+    }
   };
 
   return (
@@ -27,15 +33,16 @@ function App() {
               <Button name="Click me" onClick={() => console.log("test")} />
             </div>
             <div className="w-4/5 bg-gray-400 flex items-center justify-center">{CONFIG} active</div>
+            <div className="w-4/5 bg-gray-400 flex items-center justify-center">Built at {BUILT_AT}</div>
           </div>
         </main>
 
-        <footer className="h-[20px] xl:h-[40px] bg-gray-200 bg-gradient-to-br from-green-700 to-green-500 flex justify-end gap-4 px-2 items-center">
+        <footer className="h-[20px] xl:h-[40px] text-stone-100 bg-gradient-to-br from-green-700 to-green-500 flex justify-end gap-4 px-2 items-center">
           <button onClick={openDialog}>About</button>
-          <p className="">Template project | 2024</p>
+          <p className="">{`Template project | ${BUILT_AT} | 2024 - ${new Date().getFullYear()}`}</p>
         </footer>
       </div>
-      <dialog ref={dialogRef}>
+      <dialog ref={dialogRef} onClick={onBackdropClick} className="rounded-md">
         <div className="w-[80vw] h-[80vh] p-4 flex flex-col items-center justify-between">
           <p className="font-bold text-2xl">Title</p>
           <div>
